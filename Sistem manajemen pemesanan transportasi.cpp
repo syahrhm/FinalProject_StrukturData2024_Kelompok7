@@ -377,6 +377,11 @@ int main() {
             cout << "Enter your choice (1-" << cities.size() << "): ";
             cin >> endCityIndex;
 
+            if (startCityIndex == endCityIndex) {
+                cout << "Tidak ada pemesanan transportasi di kota ini.\n";
+                continue;
+            }
+
             City* startCity = &cities[startCityIndex - 1];
             City* endCity = &cities[endCityIndex - 1];
 
@@ -415,7 +420,7 @@ int main() {
             cin >> ticketCount;
 
             if (transport->getCapacity(companyName) < ticketCount) {
-                cout << "Kapasitas tidak cukup.\n";
+                cout << "Pemesanan transportasi gagal. Kapasitas tidak mencukupi.\n";
                 continue;
             }
 
